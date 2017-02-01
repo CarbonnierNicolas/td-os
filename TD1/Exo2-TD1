@@ -1,0 +1,10 @@
+Exercice 2
+
+appels système :										bibliotheque  :
+
+int fd;													// 0 entrée standard
+int c;													// 1 sortie standard
+fd = open(nom, O_RDONLY);						// 2 sortie erreur
+read(fd, &c, 1);
+close (fd);
+return c;
