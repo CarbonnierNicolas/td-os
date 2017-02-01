@@ -1,0 +1,3 @@
+echo "texte" : commande pour ecrire dans le terminal
+cat : affiche le contenu d'un fichier
+tree : affiche l'arborescence des fichier et repertoire a partir du repertoire actuel
