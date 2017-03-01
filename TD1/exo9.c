@@ -7,6 +7,12 @@
 #include <stdio.h>
 #include <dirent.h>
 
+//A FINIR
+//man 2 chmode
+//man 2 stat => s_time
+
+
+
 int main(int argc, char **argv){
 	char source[MAXLINE], dest[MAXLINE];
 	if(argc != 3){
