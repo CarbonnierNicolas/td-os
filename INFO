@@ -1,3 +1,6 @@
 echo "texte" : commande pour ecrire dans le terminal
 cat : affiche le contenu d'un fichier
 tree : affiche l'arborescence des fichier et repertoire a partir du repertoire actuel
+rm -r : supprime les fichier et repertoire (appel recursif)
+ln -s source destination : creation lien symbolique
+ln source destination : creation lien physique 
