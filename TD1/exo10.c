@@ -8,6 +8,26 @@
 #include <string.h>
 #define MAX 1024
 #define N 128
+#define MAXBUF 1024
+
+void separe (char *chaine, char **tab){
+	char *q;
+	int ntab;
+	
+	ntab = 0;
+	q = chaine;
+	while(*q != '\0'){
+		tab[ntab++] = q;
+		while(*q != '\0' && *q != ':'){
+			*q++;
+		}
+		if(*q == ':'){
+			*q++ = '\0';
+			}
+	}
+	tab[ntab] = NULL;
+	
+}
 
 struct SEP{
 		char T[MAX][MAX];
@@ -50,5 +70,38 @@ void path(){
 }
 
 int main(int argc, char *argv[]){
+	
+	int i;
+	char *tab[20];
+	char buf[MAXBUF];
+	
+	if(argc != 2){
+		fprintf(stderr,"usage which cmd\n");
+		exit(1);
+	}
+	
+	separe(getenv("PATH"), tab);
+	
+	printf("my PATH \n");
+	i = 0;
+	while(tab[i] != NULL){
+		printf("%s\n", tab[i]);
+		i++;
+	}
+	
+	printf("\n looking for %s cad\n", argv[1]);
+	i =0;
+	while(tab[i] != NULL){
+		sprintf(buf," %s%s", tab[i], argv[1]);
+		if(access(buf, X_OK) != -1){
+			printf("%s\n", buf);
+			exit(0);
+		}
+		i++;
+	}
+	
+	fprintf(stderr,"command %s not found\n", argv[1]);
+	exit(1);
+	
 	path();
 }
